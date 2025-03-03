@@ -33,9 +33,30 @@ const App = () => {
           <Route path="/plans" element={<Plans />} />
 
           <Route path="/register" element={<Register />} />
-          <Route path="/checkout/:plan" element={<CheckoutForm />} />
-          <Route path="/free-plan" element={<FreePlanSignup />} />
-          <Route path="/success" element={<PaymentSuccess />} />
+          <Route
+            path="/checkout/:plan"
+            element={
+              <AuthRoute>
+                <CheckoutForm />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/free-plan"
+            element={
+              <AuthRoute>
+                <FreePlanSignup />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/success"
+            element={
+              <AuthRoute>
+                <PaymentSuccess />
+              </AuthRoute>
+            }
+          />
 
           <Route
             path="/dashboard"
